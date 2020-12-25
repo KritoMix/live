@@ -1,4 +1,6 @@
-import 'package:live/apiServices/Models/sportmodels.dart';
+
+import 'package:live/Reposetori/Models/sportmodels.dart';
+import 'package:live/Reposetori/Models/tree.dart';
 import 'package:meta/meta.dart';
 import 'package:equatable/equatable.dart';
 
@@ -27,7 +29,7 @@ class HomePageStateError extends HomePageState {
 }
 
 class HomePageStateSearched extends HomePageState {
-  final SportsModel data;
+  final List<Tree> data;
 
   HomePageStateSearched({this.data});
 

@@ -1,11 +1,11 @@
-import 'package:live/apiServices/repository.dart';
-import 'package:live/src/pages/home_page_events.dart';
-import 'package:live/src/pages/home_page_state.dart';
 
+import 'package:live/BookmakerServices/IBookmakerService.dart';
 import 'package:bloc/bloc.dart';
+import 'package:live/src/screens/home/home_events.dart';
+import 'package:live/src/screens/home/home_state.dart';
 
 class HomePageBloc extends Bloc<HomePageEvent, HomePageState> {
-  final Repository gitRepository;
+  final IBookmakerService gitRepository;
 
   HomePageBloc({this.gitRepository});
 

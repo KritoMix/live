@@ -1,14 +1,16 @@
 
 import 'package:http/http.dart' as http;
+import 'package:live/BookmakerServices/IBookmakerService.dart';
+import 'package:live/Reposetori/Models/tree.dart';
 
 import 'dart:convert';
 
-import '../Models/sportmodels.dart';
+import '../Reposetori/Models/sportmodels.dart';
 
-class BookmakerService{
+class LigaStavok extends IBookmakerService
+{
 
-
-  Future<SportsModel> getSports() async{
+  Future<List<Tree>> getSports() async{
 
     	Map<String,String> headers = {'Content-Type':'application/json'};	
     final String url = 'https://lds-api.ligastavok.ru/rest/events/v2/getSportsTree';
@@ -16,9 +18,8 @@ class BookmakerService{
 
     if(response.statusCode == 200)
     {
-      SportsModel result = SportsModel.fromJson(json.decode(response.body));
-      print(response.statusCode.toString());
-      return result;
+      Send send = Send.fromJson(json.decode(response.body));
+      return send.result.tree;
     }else{
       return throw Exception('Unable to connect with server');
     }
